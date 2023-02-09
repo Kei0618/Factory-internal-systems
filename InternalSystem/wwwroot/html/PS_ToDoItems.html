@@ -465,10 +465,19 @@
                 <h4 class="fw-bold py-3 mb-4EK"><span class="text-muted fw-light">個人資料 /</span> 待辦事項</h4>
                     <div class="container-xxl flex-grow-1 container-p-y">
                       <div class="card mb-4 m-4">
+                        <!-- 卡片標題 -->
+                        <div class="d-flex bg-info mb-5" style="border-radius: 8px 8px 0px 0px;">
+                          <div class="col-1 my-2 mb-3" style="width: 70px;">
+                            <img src="../assets/img/myicon/order.png" alt="" class="ms-4 mt-3" style="width: 55px;">
+                          </div>
+                          <div class="col-6 my-2 mb-3">
+                            <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">個人待辦事項</h2>
+                          </div>
+                        </div>
                                     <!-- ★設權限 -->
                                     <ul class="nav nav-pills mb-3 nav-fill active" role="tablist" >
                                         <li class="nav-item " v-if="employeelist.positionId<7">
-                                            <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="cnt!=0">{{cnt}}</span>
+                                            <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="cnt>0">{{cnt}}</span>
                                             <button type="button"
                                                     class="btn-primary fw-bold border-3 my-5"
                                                     role="tab"
@@ -497,7 +506,8 @@
                                                     data-bs-toggle="tab"
                                                     data-bs-target="#auditleave"
                                                     aria-controls="auditleave"
-                                                    aria-selected="false">
+                                                    aria-selected="false"
+                                                    @click="auditleave">
                                                 請假審核
                                         <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="mnt!=0">{{mnt}}</span>
                                             </button>
@@ -508,10 +518,11 @@
                                                     class="btn-primary fw-bold border-3"
                                                     role="tab"
                                                     data-bs-toggle="tab"
-                                                    data-bs-target="#auditover"
-                                                    aria-controls="auditover"
+                                                    data-bs-target="#over"
+                                                    aria-controls="over"
                                                     aria-selected="false"
-                                                    id="overtime-check">
+                                                    id="overtime-check"
+                                                    @click="over">
                                                 加班審核
                                                 <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning" v-if="wmt!=0">{{wmt}}</span>
 
@@ -537,7 +548,7 @@
                                     
 
                                         <!-- 請假 -->
-                                        <div id="home" role="tabpanel" v-if="employeelist.positionId < 7">
+                                        <div id="home" role="tabpanel" v-if="employeelist.positionId < 7" >
                                             <div class="table-responsive text-nowrap">
                                                 <table class="table table-striped table-hover">
                                                     <thead class="bg-black">
@@ -546,8 +557,10 @@
                                                             <th class="fs-4 text-white fw-bold">員工名稱</th>
                                                             <th class="fs-4 text-white fw-bold">員工編號</th>
                                                             <th class="fs-4 text-white fw-bold">員工部門</th>
-                                                            <th class="fs-4 text-white fw-bold"></th>
+                                                            <th class="fs-4 text-white fw-bold">&nbsp;</th>
                                                             <th class="fs-4 text-white fw-bold">狀態</th>
+                                                            <th class="fs-4 text-white fw-bold">&nbsp;</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody class="table-border-bottom-0" v-for="(leaveExit,key) in leavereturn">
@@ -693,7 +706,7 @@
                                 </div>-->
 
                                 <!--請假審核-->
-                                <div class="tab-pane fade " id="auditleave" role="tabpanel" 
+                                <div class="tab-pane fade " id="auditleave" role="tabpanel"  style="display:none"
                                     >
                                         <div class="table-responsive text-nowrap" >
                                             <table class="table table-striped table-hover">
@@ -787,7 +800,11 @@
                             
 
                             <!--加班審核-->
-                            <div class="tab-pane fade " id="auditover" role="tabpanel" >
+
+
+
+
+                            <div class="tab-pane fade " id="over" role="tabpanel"style="display:none" >
                                     <div class="table-responsive text-nowrap">
                                         <table class="table table-striped table-hover">
                                             <thead class="bg-black">
@@ -825,14 +842,10 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-
                                         </table>
+
                             </div>
                         </div>
-
-
-
-
             </div>
             <!-- Content wrapper -->
 
@@ -909,9 +922,9 @@
                 wkover: {},
                 leavereturn: {},
                 NotyetOver: {},
-                cnt: {},
-                mnt: {},
-                wmt: {}
+                  cnt: {},
+                  mnt: {},
+                  wmt: {}
               }
             },
             methods: {
@@ -930,8 +943,23 @@
               },
               buycheckbtn: function (e) {
                 sessionStorage.setItem("see", JSON.stringify(e))
-              }
-            },
+                },
+                auditleave: function () {
+                    $('#auditleave').show();
+                    $('#over').hide();
+
+                },
+                over: function () {
+                    $('#over').show();
+                    $('#auditleave').hide();
+
+                }
+              },
+              computed() {
+        
+              
+              },
+
             mounted() {
               this.employeedata = JSON.parse(sessionStorage.getItem("LoginInf"));
 
@@ -944,8 +972,12 @@
                   if (this.employeelist.positionId < 7) {
                     axios.get('/api/PersonnelLeaveForms/proxyAudit/'
                       + this.employeelist.departmentId + '/' + this.employeelist.positionId
-                      + '/' + this.employeelist.employeeId)
-                      .then(response => this.leaveproxy = response.data)
+                        + '/' + this.employeelist.employeeId)
+                        .then(response => {
+                            this.leaveproxy = response.data;
+                            this.cnt = this.leavereturn.length + this.leaveproxy.length + this.buyapp.length;
+                        })
+
                   }
 
                   //一般員工GET被退件之採購申請
@@ -970,7 +1002,7 @@
                       + this.employeelist.departmentId)
                       .then(response => {
                         this.wkover = response.data;
-                        this.wmt = this.wkover.length
+                        //this.wmt = this.wkover.length
                         console.log(this.wmt)
                       })
 
@@ -990,9 +1022,14 @@
                       .then(response => this.NotyetOver = response.data)
                   }
 
+
+                    console.log(this.leaveproxy)
                 })
-
-
+                  setTimeout(() => {
+                      this.cnt = this.leavereturn.length + this.leaveproxy.length + this.buyapp.length;
+                      this.mnt = this.leaveproxy.length;
+                      this.wmt = this.wkover.length;
+                  }, 300)
             }
           }
 

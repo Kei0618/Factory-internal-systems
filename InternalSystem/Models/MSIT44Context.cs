@@ -47,14 +47,6 @@ namespace InternalSystem.Models
         public virtual DbSet<ProductionProcessList> ProductionProcessLists { get; set; }
         public virtual DbSet<ProductionProcessStatusName> ProductionProcessStatusNames { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=10.0.104.99\\L27\\SQLEXPRESS,1433;Database=MSIT44;Integrated Security=false;User ID = Lin;Password= 8564;");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -122,6 +114,8 @@ namespace InternalSystem.Models
                     .HasName("PK__Business__C3905BCF88F045D7");
 
                 entity.ToTable("BusinessOrder");
+
+                entity.Property(e => e.DeadlineDateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.EditDatetime).HasColumnType("datetime");
 

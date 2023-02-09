@@ -48,7 +48,8 @@ namespace InternalSystem.Controllers
                         Price = opl.Price,
                         OptionalName = opl.OptionalName,
                         AreaId = ord.AreaId,
-                        isAccepted = ord.IsAccepted
+                        isAccepted = ord.IsAccepted,
+                        deadline=ord.DeadlineDateTime
                     };
             return await q.ToListAsync();
         }
@@ -162,6 +163,7 @@ namespace InternalSystem.Controllers
                          bo.OrderNumber,
                          bo.OrderDateTime,
                          bo.EditDatetime,
+                         bo.DeadlineDateTime,
                          bo.Area.AreaName,
                          bo.Price,
                          bo.IsAccepted,
@@ -259,9 +261,8 @@ namespace InternalSystem.Controllers
         //新增父子資料
         // POST: api/BusinessOrders/withoutloop
         [HttpPost("withoutloop")]
-        public dynamic PostOrder([FromBody] ICollection<BusinessOrderDetail> bod ,string type,int areaid)
+        public dynamic PostOrder([FromBody] ICollection<BusinessOrderDetail> bod ,string type,int areaid,DateTime deadline)
         {
-
             if (bod != null && type != null && areaid.ToString() != null)
             {
                 //找第一位業務部員工
@@ -271,7 +272,6 @@ namespace InternalSystem.Controllers
                     .First();
                 //組裝訂單編號
                 var ordnum = $"{type}0{areaid}{DateTimeOffset.Now.ToUnixTimeSeconds()}";
-
 
                 //算本訂單價錢
                 var money = 0;
@@ -284,13 +284,13 @@ namespace InternalSystem.Controllers
                 {
                     OrderNumber = ordnum,
                     OrderDateTime = DateTime.Now,
+                    DeadlineDateTime = deadline,
                     AreaId = areaid,
                     Price = money,
                     EmployeeId = emp,
                     IsAccepted = false,
                     BusinessOrderDetails = bod
                 };
-
                 _context.BusinessOrders.Add(insert);
                 _context.SaveChanges();
                 return "訂單新增成功!";
@@ -338,7 +338,8 @@ namespace InternalSystem.Controllers
                     .Select(a => new { 
                     a.OrderId,
                     a.OrderNumber,
-                    a.OrderDateTime 
+                    a.OrderDateTime,
+                    a.DeadlineDateTime,
                     }).SingleOrDefault();
 
             //改訂單首英文字母
@@ -371,6 +372,7 @@ namespace InternalSystem.Controllers
                 OrderNumber = strtemp,
                 OrderDateTime = q.OrderDateTime,
                 EditDatetime = DateTime.Now,
+                DeadlineDateTime = q.DeadlineDateTime,
                 AreaId = areaid,
                 Price = money,
                 EmployeeId = emp,
