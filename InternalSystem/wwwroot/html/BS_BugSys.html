@@ -198,7 +198,7 @@
                                     <div data-i18n="Account" class="fs-5">員工出勤查詢</div>
                                 </a>
                             </li>
-                            
+
 
                         </ul>
                     </li>
@@ -227,9 +227,9 @@
                             </li>
                             <li class="menu-item">
                                 <a href="BS_OrderAll.html" class="menu-link">
-                                  <div data-i18n="Account" class="fs-5">訂單一覽</div>
+                                    <div data-i18n="Account" class="fs-5">訂單一覽</div>
                                 </a>
-                              </li>
+                            </li>
                         </ul>
                     </li>
 
@@ -270,7 +270,7 @@
                                     <div data-i18n="Account" class="fs-5">製程總工時</div>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </li>
 
@@ -280,7 +280,7 @@
                             <div data-i18n="Account Settings" class="fs-4 fw-bold">產線狀況監控</div>
                         </a>
                         <ul class="menu-sub">
-                             
+
                             <li class="menu-item active">
                                 <a href="BS_BugSys.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">報錯系統</div>
@@ -294,6 +294,7 @@
                         </ul>
                     </li>
 
+                    <!-- 採購系統 -->
                     <!-- 採購系統 -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text fs-5 fw-bold">採購系統</span>
@@ -310,6 +311,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="PC_Acceptance.html" class="menu-link">
+                                    <div data-i18n="Account" class="fs-5">採購驗收區</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="PC_Application.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">採購申請表</div>
                                 </a>
@@ -319,11 +325,11 @@
                                     <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>
+                            <!--<li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+            </li>-->
                             <li class="menu-item">
                                 <a href="PC_ItemSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -347,13 +353,13 @@
                                     <div data-i18n="Account" class="fs-5">預約會議室</div>
                                 </a>
                             </li>
-                            
+
                             <li class="menu-item">
                                 <a href="MT_MeetReserveSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">查詢租借紀錄/<br>建立會議記錄表</div>
                                 </a>
                             </li>
-                            
+
                             <li class="menu-item">
                                 <a href="MT_MeetRecordSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">會議記錄表查詢</div>
@@ -362,8 +368,8 @@
                         </ul>
                     </li>
 
-                    
-                    
+
+
                 </ul>
             </aside>
             <!-- /Menu -->
@@ -371,12 +377,12 @@
             <div class="layout-page">
                 <!-- Navbar -->
 
-                <nav class="container" id="navInf">
+                <!--<nav class="container" id="navInf">
                     <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                         id="layout-navbar" style="height: 80px;">
-                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">-->
                             <!-- 問好 -->
-                            <div v-bind:title="message" class="navbar-nav align-items-center fs-4 mx-auto">
+                            <!--<div v-bind:title="message" class="navbar-nav align-items-center fs-4 mx-auto">
                                 😊您好
                                 <span class="fw-bold mx-2 fs-2"
                                     style="text-decoration: underline 4pt #666EE8;">{{navInf.Name}}</span>&nbsp;&nbsp;
@@ -385,13 +391,13 @@
                                     style="text-decoration: underline 4pt #666EE8;">{{navInf.EmpNumber}}</span>&nbsp;&nbsp;
                                 💻部門：
                                 <span class="fw-bold mx-2 fs-2" style="text-decoration: underline 4pt #666EE8;">{{navInf.Dep}}</span>
-                            </div>
+                            </div>-->
                             <!-- /問好 -->
                 
-                            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <!--<ul class="navbar-nav flex-row align-items-center ms-auto">-->
                 
                                 <!-- User -->
-                                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <!--<li class="nav-item navbar-dropdown dropdown-user dropdown">
                                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                         <div class="avatar ">
                                             <img :src="navInf.Photo" class="w-px-40 h-auto rounded-circle" />
@@ -421,14 +427,14 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>-->
                                 <!--/ User -->
-                            </ul>
+                            <!--</ul>
                 
                         </div>
-                    </nav>
+                    </nav>-->
                     <!-- / Navbar -->
-                </nav>
+                <!--</nav>-->
 
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
@@ -465,56 +471,53 @@
                                 ❌&nbsp;{{text}}
                             </div>
                         </div>
+                        <span class="fs-4">產線狀況監控 / </span><span class=" fw-bold fs-2">報錯系統</span>
                         <div class="card mb-4 m-4">
-                            <h2 class="card-header">產線報錯系統</h2>
+                            <!-- 卡片標題 -->
+                            <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
+                                <div class="col-1 my-2 mb-3" style="width: 70px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1713/1713139.png" alt="" class="ms-4 mt-3" style="width: 55px;">
+                                </div>
+                                <div class="col-6 my-2 mb-3">
+                                    <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">產線報錯系統</h2>
+                                </div>
+                            </div>
+                        
                             <!-- <h5 class="card-header">車輛資訊</h5> -->
-                            <div class="card-body">
+                            <div class="card-body mx-4 row">
                                 <!-- pills -->
-                                <div class="row justify-content-md-center">
-                                    <div class="col-2"></div>
-                                    <div class="col-8">
+                                    <div class="col-6">
                                         <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="ordid">訂單號碼</label>
-                                        <select id="ordid" class="form-select color-dropdown" v-model="selcone">
+                                        <select @change="setmodal" id="ordid" class="form-select color-dropdown mb-4" v-model="selcone">
                                             <option value="999" selected disabled>請選擇訂單</option>
                                             <option v-for="one in bugsysorder"
                                                     :value="one">
                                                 {{one.orderNumber}} 車款 : {{one.optionalName}}
                                             </option>
                                         </select>
+                                    </div>
+                                        <div class="col-6"></div>
+                                        
+                                        <div class="col-4">
+                                            <label for="cartype" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">車款</label>
+                                            <input type="text" class="form-control fs-5 mb-2" id="cartype" readonly :value="selcone.optionalName" />
+                                        </div>
 
+                                        <div class="col-4">
+                                            <label for="area" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">廠區</label>
+                                            <input type="text" class="form-control fs-5 mb-2" id="area" readonly :value="selcone.areaId" />
+                                        </div>
 
-                                        <label for="cartype" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">車款</label>
-                                        <input type="text"
-                                               class="form-control fs-5"
-                                               id="cartype"
-                                               readonly
-                                               :value="selcone.optionalName" />
-
-                                        <label for="area" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">廠區</label>
-                                        <input type="text"
-                                               class="form-control fs-5"
-                                               id="area"
-                                               readonly
-                                               :value="selcone.areaId" />
-
-                                        <label for="process" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">製程</label>
-                                        <input type="text"
-                                               class="form-control fs-5 mb-5"
-                                               id="process"
-                                               readonly
-                                               :value="selcone.processId" />
-
-
-
-
-                                        <label for="exampleFormControlTextarea1" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">事件描述 : </label>
-                                        <textarea class="form-control fs-5"
-                                                  id="exampleFormControlTextarea1"
-                                                  rows="10"
-                                                  v-model="description">
-                                        </textarea>
-
-
+                                        <div class="col-4">
+                                            <label for="process" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">製程</label>
+                                            <input type="text" class="form-control fs-5 mb-5 mb-2" id="process" readonly :value="selcone.processId" />
+                                        </div>
+                                        
+                                        <div class="col">
+                                            <label for="exampleFormControlTextarea1" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">事件描述 : </label>
+                                            <textarea @change="setmodal" class="form-control fs-5" id="exampleFormControlTextarea1" rows="10" v-model="description">
+                                                                                    </textarea>
+                                        </div>
 
                                         <!-- ★Modal -->
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -522,48 +525,46 @@
                                                 <div class="modal-content border border-5">
                                                     <div class="modal-header mb-3">
                                                         <p class="modal-title fs-2 fw-bold" id="ModalLabel" style="border-left: 10pt solid #666EE8;border-radius: 4px;">
-
                                                             &nbsp選擇故障排除狀態
                                                         </p>
                                                     </div>
 
                                                     <div class="modal-body text-start ">
                                                         <p class="fs-5">✏️訂單號碼：{{selcone.orderNumber}}</p>
-                                                        <p class="fs-5">✏️車款：{{selcone. optionalName}}</p>
+                                                        <p class="fs-5">✏️車款：{{selcone.optionalName}}</p>
                                                         <p class="fs-5">✏️事件描述：{{description}}</p>
                                                         <p class="alert alert-danger fs-4 fw-bold col-5 text-center mx-auto mt-5">⚠️確認提交?</p>
 
                                                         <div class="text-center">
                                                             <!-- 存檔按鈕 -->
-                                                            <div class="row my-5 mx-3">
-                                                                <div class="col-3">
-                                                                    <button @click="btnstate" type="button" class="btn btn-success fw-bold py-3">正常</button>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <button @click="btnstate" type="button" class="btn btn-warning fw-bold py-3">待處理</button>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <button @click="btnstate" type="button" class="btn btn-info fw-bold py-3">處理中</button>
-                                                                </div>
-                                                                <div class="col-3">
-                                                                    <button @click="btnstate" type="button" class="btn btn-danger fw-bold py-3">異常</button>
-                                                                </div>
-                                                            </div>
-                                                            <button type="button" class="btn btn-secondary fw-bold my-3 py-3" data-bs-dismiss="modal">取消</button>
+                                                            <button @click="submit" type="button" class="btn btn-primary fs-4 fw-bold text-center me-5">送出</button>
+                                                            <button type="button" class="btn btn-secondary fs-4 fw-bold text-center" data-bs-dismiss="modal">取消</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- 確認視窗按鈕 -->
-                                        <div class="mt-2 py-5 text-center justify-content-md-end">
-                                            <button type="button" class="btn btn-primary fs-4 fw-bold text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                送出
-                                            </button>
+                                        <div v-if="btnmodal" class="mt-2 py-5 text-center justify-content-md-end">
+                                            <p class="badge rounded-pill bg-primary fs-4 mb-1 fw-bold">選擇下方按鈕送出</p>
+                                            <div class="row my-5 mx-3">
+                                                <div class="col-3">
+                                                    <button @click="btnstate" type="button" class="btn btn-success fw-bold py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">正常</button>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button @click="btnstate" type="button" class="btn btn-warning fw-bold py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">待處理</button>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button @click="btnstate" type="button" class="btn btn-info fw-bold py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">處理中</button>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button @click="btnstate" type="button" class="btn btn-danger fw-bold py-3" data-bs-toggle="modal" data-bs-target="#exampleModal">異常</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-2"></div>
-                                </div>
+
                                 <!-- /pills -->
                             </div>
                         </div>
@@ -624,32 +625,16 @@
                     putstate: {},
                     description: '',
                     bugsysorder: {},
-                    selcone: 999
+                    selcone: 999,
+                    btnmodal: false,
+                    stateName: ''
                 }
             },
             methods: {
                 btnstate(event) {
-                    if (this.selcone != 999 && this.description != '') {
-                            var stateName = event.target.innerText
-                            console.log(stateName);
-                            axios.put(`/api/MonitoringProcessAreaStatus/putstatus?areaid=${this.selcone.areaId}&processId=${this.selcone.processId}&cartype=${this.selcone.optionalName}&stateName=${stateName}&des=${this.description}`)
-                                .then(g => {
-                                    if (g.data == 'commit') {
-                                        //成功
-                                        this.text = '狀態修改成功!'
-                                        $("#toastSuc").fadeIn("fast");
-                                        setTimeout(() => $("#toastSuc").fadeOut(), 2000);
-                                        sessionStorage.setItem("sessiondesc", JSON.stringify(this.description));
-                                        window.location = "BS_MonitorSys.html";
-                                    } else {
-                                        //失敗
-                                        this.text = "有部分選項未填寫!"
-                                        $("#toastErr").fadeIn("fast");
-                                        setTimeout(() => $("#toastErr").fadeOut(), 2000);
-                                    };
-                                })
-                        
-                    }
+                    /*if (this.selcone != 999 && this.description.trim() != '') {*/
+                    this.stateName = event.target.innerText;
+                    /*}
                     else if (this.selcone == 999) {
                         //失敗
                         this.text = "請選擇異常訂單編號!"
@@ -661,7 +646,29 @@
                         this.text = "請填寫異常狀態描述!"
                         $("#toastErr").fadeIn("fast");
                         setTimeout(() => $("#toastErr").fadeOut(), 2000);
-                    }
+                    }*/
+                },
+                submit() {
+                    axios.put(`/api/MonitoringProcessAreaStatus/putstatus?areaid=${this.selcone.areaId}&processId=${this.selcone.processId}&cartype=${this.selcone.optionalName}&stateName=${this.stateName}&des=${this.description}`)
+                        .then(g => {
+                            if (g.data == 'commit') {
+                                //成功
+                                this.text = '狀態修改成功!'
+                                $("#toastSuc").fadeIn("fast");
+                                setTimeout(() => $("#toastSuc").fadeOut(), 2000);
+                                sessionStorage.setItem("sessiondesc", JSON.stringify(this.description));
+                                setTimeout(() => window.location = "BS_BugSys.html", 2000);
+                            } else {
+                                //失敗
+                                this.text = "有部分選項未填寫!"
+                                $("#toastErr").fadeIn("fast");
+                                setTimeout(() => $("#toastErr").fadeOut(), 2000);
+                            };
+                        })
+                },
+                setmodal() {
+                    //訂單要選&描述要寫(空白不行)才會秀按鈕
+                    this.btnmodal = this.selcone != 999 && this.description.trim() != "";
                 }
             },
             mounted() {
